@@ -25,15 +25,17 @@ function CoreConcept({ title, description, image }) {
 function MapCoreConcepts(coreConcepts) {
   return (
     <ul>
-      {coreConcepts.map((coreConcept) => {
-        return (
-          <CoreConcept
-            image={coreConcept.image}
-            title={coreConcept.title}
-            description={coreConcept.description}
-          />
-        )
-      })}
+      {
+        coreConcepts.map((coreConcept) => {
+          return (
+            <CoreConcept
+              image={coreConcept.image}
+              title={coreConcept.title}
+              description={coreConcept.description}
+            />
+          )
+        })
+      }
     </ul>
   )
 }
