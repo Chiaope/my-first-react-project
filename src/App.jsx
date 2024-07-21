@@ -28,11 +28,7 @@ function MapCoreConcepts(coreConcepts) {
       {
         coreConcepts.map((coreConcept) => {
           return (
-            <CoreConcept
-              image={coreConcept.image}
-              title={coreConcept.title}
-              description={coreConcept.description}
-            />
+            <CoreConcept {...coreConcept} />
           )
         })
       }
