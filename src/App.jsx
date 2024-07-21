@@ -1,4 +1,5 @@
 import reactAtomImage from "./assets/react-core-concepts.png"
+import { CORE_CONCEPTS } from "./data"
 
 function Header() {
   return <header>
@@ -11,12 +12,41 @@ function Header() {
   </header>
 }
 
+function CoreConcept({ title, description, image }) {
+  return (
+    <li>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  )
+}
+
+function MapCoreConcepts(coreConcepts) {
+  return (
+    <ul>
+      {coreConcepts.map((coreConcept) => {
+        return (
+          <CoreConcept
+            image={coreConcept.image}
+            title={coreConcept.title}
+            description={coreConcept.description}
+          />
+        )
+      })}
+    </ul>
+  )
+}
+
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Core Concepts</h2>
+          {MapCoreConcepts(CORE_CONCEPTS)}
+        </section>
       </main>
     </div>
   );
