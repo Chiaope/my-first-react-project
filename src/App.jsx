@@ -1,16 +1,7 @@
-import reactAtomImage from "./assets/react-core-concepts.png"
+
+import Header from "./components/Header"
 import { CORE_CONCEPTS } from "./data"
 
-function Header() {
-  return <header>
-    <img src={reactAtomImage} alt="Stylized atom" />
-    <h1>React Essentials</h1>
-    <p>
-      Fundamental React concepts you will need for almost any app you are
-      going to build!
-    </p>
-  </header>
-}
 
 function CoreConceptListItem({ title, description, image }) {
   return (
