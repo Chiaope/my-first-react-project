@@ -6,7 +6,7 @@ import MenuButton from "./components/MenuButton/MenuButton";
 
 
 function App() {
-  const [selectedMenuItem, setSelectedMenuItem] = useState('Please select a menu item')
+  const [selectedMenuItem, setSelectedMenuItem] = useState('Please enter something')
 
   function handleOnSelect(newSelectedMenuItem) {
     setSelectedMenuItem(newSelectedMenuItem)
@@ -33,17 +33,30 @@ function App() {
       <>
         {
           Object.keys(exampleItems).map((exampleItemKey, index) => {
-            let title = exampleItems[exampleItemKey].title
+            let exampleItem = exampleItems[exampleItemKey]
             return (
               <li key={index}>
-                <MenuButton onSelect={() => handleOnSelect(title)}>{title}</MenuButton>
+                <MenuButton onSelect={() => handleOnSelect(exampleItemKey)}>{exampleItem.title}</MenuButton>
               </li>
             )
           })
         }
       </>
     )
+  }
 
+  function MenuContainer({title, description, code}) {
+    return (
+      <>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <pre>
+          <code>
+            {code}
+          </code>
+        </pre>
+      </>
+    )
   }
 
   return (
@@ -61,7 +74,7 @@ function App() {
             {MapExampleItems(EXAMPLES)}
           </menu>
           <div id='tab-content'>
-            {selectedMenuItem}
+            {EXAMPLES[selectedMenuItem] ? MenuContainer(EXAMPLES[selectedMenuItem]) : selectedMenuItem}
           </div>
         </section>
       </main>
