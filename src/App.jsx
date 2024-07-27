@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CoreConceptListItem from "./components/CoreComponentListItem/CoreConceptListItem";
+import CoreConceptListItem from "./components/CoreComponent/CoreConcept";
 import Header from "./components/Header/Header"
-import { CORE_CONCEPTS } from "./data"
+import { CORE_CONCEPTS, EXAMPLES } from "./data"
 import MenuButton from "./components/MenuButton/MenuButton";
 
 
@@ -16,14 +16,34 @@ function App() {
     return (
       <>
         {
-          coreConcepts.map((coreConcept) => {
+          coreConcepts.map((coreConcept, index) => {
             return (
-              <CoreConceptListItem {...coreConcept} />
+              <li key={index}>
+                <CoreConceptListItem {...coreConcept} />
+              </li>
             )
           })
         }
       </>
     )
+  }
+
+  function MapExampleItems(exampleItems) {
+    return (
+      <>
+        {
+          Object.keys(exampleItems).map((exampleItemKey, index) => {
+            let title = exampleItems[exampleItemKey].title
+            return (
+              <li key={index}>
+                <MenuButton onSelect={() => handleOnSelect(title)}>{title}</MenuButton>
+              </li>
+            )
+          })
+        }
+      </>
+    )
+
   }
 
   return (
@@ -38,12 +58,11 @@ function App() {
         </section>
         <section id='examples'>
           <menu>
-            <MenuButton onSelect={() => handleOnSelect('components')}>Components</MenuButton>
-            <MenuButton onSelect={() => handleOnSelect('jsx')}>JSX</MenuButton>
-            <MenuButton onSelect={() => handleOnSelect('props')}>Props</MenuButton>
-            <MenuButton onSelect={() => handleOnSelect('state')}>State</MenuButton>
+            {MapExampleItems(EXAMPLES)}
           </menu>
-          {selectedMenuItem}
+          <div id='tab-content'>
+            {selectedMenuItem}
+          </div>
         </section>
       </main>
     </div>
