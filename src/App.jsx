@@ -12,7 +12,7 @@ function Header() {
   </header>
 }
 
-function CoreConcept({ title, description, image }) {
+function CoreConceptListItem({ title, description, image }) {
   return (
     <li>
       <img src={image} alt={title} />
@@ -24,15 +24,15 @@ function CoreConcept({ title, description, image }) {
 
 function MapCoreConcepts(coreConcepts) {
   return (
-    <ul>
+    <>
       {
         coreConcepts.map((coreConcept) => {
           return (
-            <CoreConcept {...coreConcept} />
+            <CoreConceptListItem {...coreConcept} />
           )
         })
       }
-    </ul>
+    </>
   )
 }
 
@@ -43,7 +43,9 @@ function App() {
       <main>
         <section id="core-concepts">
           <h2>Core Concepts</h2>
-          {MapCoreConcepts(CORE_CONCEPTS)}
+          <ul>
+            {MapCoreConcepts(CORE_CONCEPTS)}
+          </ul>
         </section>
       </main>
     </div>
