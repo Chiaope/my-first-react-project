@@ -1,17 +1,7 @@
-
+import CoreConceptListItem from "./components/CoreConceptListItem";
 import Header from "./components/Header"
 import { CORE_CONCEPTS } from "./data"
 
-
-function CoreConceptListItem({ title, description, image }) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  )
-}
 
 function MapCoreConcepts(coreConcepts) {
   return (
