@@ -3,15 +3,10 @@ import CoreConceptListItem from "./components/CoreComponent/CoreConcept";
 import Header from "./components/Header/Header"
 import { CORE_CONCEPTS, EXAMPLES } from "./data"
 import MenuButton from "./components/MenuButton/MenuButton";
+import ExampleMenu from "./components/ExampleMenu/ExampleMenu";
 
 
 function App() {
-  const [selectedMenuItem, setSelectedMenuItem] = useState('Please enter something')
-
-  function handleOnSelect(newSelectedMenuItem) {
-    setSelectedMenuItem(newSelectedMenuItem)
-  }
-
   function MapCoreConcepts(coreConcepts) {
     return (
       <>
@@ -28,36 +23,6 @@ function App() {
     )
   }
 
-  function MapExampleItems(exampleItems) {
-    return (
-      <>
-        {
-          Object.keys(exampleItems).map((exampleItemKey, index) => {
-            let exampleItem = exampleItems[exampleItemKey]
-            return (
-              <li key={index}>
-                <MenuButton onSelect={() => handleOnSelect(exampleItemKey)}>{exampleItem.title}</MenuButton>
-              </li>
-            )
-          })
-        }
-      </>
-    )
-  }
-
-  function MenuContainer({title, description, code}) {
-    return (
-      <>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <pre>
-          <code>
-            {code}
-          </code>
-        </pre>
-      </>
-    )
-  }
 
   return (
     <div>
@@ -70,12 +35,7 @@ function App() {
           </ul>
         </section>
         <section id='examples'>
-          <menu>
-            {MapExampleItems(EXAMPLES)}
-          </menu>
-          <div id='tab-content'>
-            {EXAMPLES[selectedMenuItem] ? MenuContainer(EXAMPLES[selectedMenuItem]) : selectedMenuItem}
-          </div>
+          {ExampleMenu(EXAMPLES)}
         </section>
       </main>
     </div>

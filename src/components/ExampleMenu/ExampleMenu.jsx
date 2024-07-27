@@ -1,0 +1,53 @@
+import { useState } from "react"
+import MenuButton from "../MenuButton/MenuButton"
+
+export default function ExampleMenu(exampleObject) {
+    console.log(exampleObject)
+
+    const [selectedMenuItem, setSelectedMenuItem] = useState('Please enter something')
+
+    function handleOnSelect(newSelectedMenuItem) {
+        setSelectedMenuItem(newSelectedMenuItem)
+    }
+    function MapExampleItems(exampleItems) {
+        return (
+            <>
+                {
+                    Object.keys(exampleItems).map((exampleItemKey, index) => {
+                        let exampleItem = exampleItems[exampleItemKey]
+                        return (
+                            <li key={index}>
+                                <MenuButton onSelect={() => handleOnSelect(exampleItemKey)}>{exampleItem.title}</MenuButton>
+                            </li>
+                        )
+                    })
+                }
+            </>
+        )
+    }
+
+    function MenuContainer({ title, description, code }) {
+        return (
+            <>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <pre>
+                    <code>
+                        {code}
+                    </code>
+                </pre>
+            </>
+        )
+    }
+
+    return (
+        <>
+            <menu>
+                {MapExampleItems(exampleObject)}
+            </menu>
+            <div id='tab-content'>
+                {exampleObject[selectedMenuItem] ? MenuContainer(exampleObject[selectedMenuItem]) : selectedMenuItem}
+            </div>
+        </>
+    )
+}
