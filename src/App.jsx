@@ -1,5 +1,5 @@
-import CoreConceptListItem from "./components/CoreConceptListItem";
-import Header from "./components/Header"
+import CoreConceptListItem from "./components/CoreComponentListItem/CoreConceptListItem";
+import Header from "./components/Header/Header"
 import { CORE_CONCEPTS } from "./data"
 
 

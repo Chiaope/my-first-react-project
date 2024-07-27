@@ -1,4 +1,5 @@
-import reactAtomImage from "../assets/react-core-concepts.png"
+import './Header.css'
+import reactAtomImage from "../../assets/react-core-concepts.png"
 
 export default function Header() {
     return <header>
