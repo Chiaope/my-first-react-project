@@ -4,7 +4,7 @@ import MenuButton from "../MenuButton/MenuButton"
 export default function ExampleMenu(exampleObject) {
     console.log(exampleObject)
 
-    const [selectedMenuItem, setSelectedMenuItem] = useState('Please enter something')
+    const [selectedMenuItem, setSelectedMenuItem] = useState(null)
 
     function handleOnSelect(newSelectedMenuItem) {
         setSelectedMenuItem(newSelectedMenuItem)
@@ -45,9 +45,7 @@ export default function ExampleMenu(exampleObject) {
             <menu>
                 {MapExampleItems(exampleObject)}
             </menu>
-            <div id='tab-content'>
-                {exampleObject[selectedMenuItem] ? MenuContainer(exampleObject[selectedMenuItem]) : selectedMenuItem}
-            </div>
+            {selectedMenuItem ? <div id='tab-content'> {MenuContainer(exampleObject[selectedMenuItem])} </div> : 'Please enter something'}
         </>
     )
 }
