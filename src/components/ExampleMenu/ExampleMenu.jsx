@@ -17,7 +17,7 @@ export default function ExampleMenu(exampleObject) {
                         let exampleItem = exampleItems[exampleItemKey]
                         return (
                             <li key={index}>
-                                <MenuButton onSelect={() => handleOnSelect(exampleItemKey)}>{exampleItem.title}</MenuButton>
+                                <MenuButton isSelected={selectedMenuItem === exampleItemKey ? true : false} onSelect={() => handleOnSelect(exampleItemKey)}>{exampleItem.title}</MenuButton>
                             </li>
                         )
                     })

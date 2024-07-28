@@ -1,5 +1,10 @@
-export default function MenuButton({ children, onSelect }) {
+export default function MenuButton({ children, onSelect, isSelected }) {
+    let className = null
+    if (isSelected) {
+        className = 'active'
+    }
+
     return (
-        <button onClick={onSelect}>{children}</button>
+        <button className={className} onClick={onSelect}>{children}</button>
     )
 }
