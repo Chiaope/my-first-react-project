@@ -40,12 +40,20 @@ export default function ExampleMenu(exampleObject) {
         )
     }
 
+    let tabContent = 'Please enter something'
+
+    if (selectedMenuItem) {
+        tabContent = <div id='tab-content'>
+            {MenuContainer(exampleObject[selectedMenuItem])}
+        </div>
+    }
+
     return (
         <>
             <menu>
                 {MapExampleItems(exampleObject)}
             </menu>
-            {selectedMenuItem ? <div id='tab-content'> {MenuContainer(exampleObject[selectedMenuItem])} </div> : 'Please enter something'}
+            {tabContent}
         </>
     )
 }
