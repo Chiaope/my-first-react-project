@@ -1,9 +1,9 @@
 import { useState } from "react"
+import "./ExampleMenu.css"
 import MenuButton from "../MenuButton/MenuButton"
+import { EXAMPLES } from "../../data"
 
-export default function ExampleMenu(exampleObject) {
-    console.log(exampleObject)
-
+export default function ExampleMenu() {
     const [selectedMenuItem, setSelectedMenuItem] = useState(null)
 
     function handleOnSelect(newSelectedMenuItem) {
@@ -44,16 +44,16 @@ export default function ExampleMenu(exampleObject) {
 
     if (selectedMenuItem) {
         tabContent = <div id='tab-content'>
-            {MenuContainer(exampleObject[selectedMenuItem])}
+            {MenuContainer(EXAMPLES[selectedMenuItem])}
         </div>
     }
 
     return (
-        <>
+        <section id='examples'>
             <menu>
-                {MapExampleItems(exampleObject)}
+                {MapExampleItems(EXAMPLES)}
             </menu>
             {tabContent}
-        </>
+        </section>
     )
 }
