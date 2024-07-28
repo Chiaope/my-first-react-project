@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./ExampleMenu.css"
 import MenuButton from "../MenuButton/MenuButton"
 import { EXAMPLES } from "../../data"
+import Section from "../Section/Section"
 
 export default function ExampleMenu() {
     const [selectedMenuItem, setSelectedMenuItem] = useState(null)
@@ -49,11 +50,11 @@ export default function ExampleMenu() {
     }
 
     return (
-        <section id='examples'>
+        <Section title={'Example'} id='examples'>
             <menu>
                 {MapExampleItems(EXAMPLES)}
             </menu>
             {tabContent}
-        </section>
+        </Section>
     )
 }

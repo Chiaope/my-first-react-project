@@ -1,4 +1,5 @@
 import { CORE_CONCEPTS } from "../../data"
+import Section from "../Section/Section"
 import './CoreConcept.css'
 
 export default function CoreConcept() {
@@ -28,11 +29,10 @@ export default function CoreConcept() {
     )
   }
   return (
-    <section id="core-concepts">
-      <h2>Core Concepts</h2>
+    <Section title={'Core Concepts'} id="core-concepts">
       <ul>
         {MapCoreConcepts(CORE_CONCEPTS)}
       </ul>
-    </section>
+    </Section>
   )
 }
