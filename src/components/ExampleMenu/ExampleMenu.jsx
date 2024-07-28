@@ -3,6 +3,7 @@ import "./ExampleMenu.css"
 import MenuButton from "../MenuButton/MenuButton"
 import { EXAMPLES } from "../../data"
 import Section from "../Section/Section"
+import Tabs from "../Tabs/Tabs"
 
 export default function ExampleMenu() {
     const [selectedMenuItem, setSelectedMenuItem] = useState(null)
@@ -51,10 +52,9 @@ export default function ExampleMenu() {
 
     return (
         <Section title={'Example'} id='examples'>
-            <menu>
-                {MapExampleItems(EXAMPLES)}
-            </menu>
-            {tabContent}
+            <Tabs buttons={MapExampleItems(EXAMPLES)}>
+                {tabContent}
+            </Tabs>
         </Section>
     )
 }
